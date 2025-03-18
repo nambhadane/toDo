@@ -60,7 +60,7 @@ while True:
         task = input("Enter task: ")
         cursor.execute("INSERT INTO tb_todo (task) VALUES (%s)", (task,))
         con.commit()  # Commit the changes to the database
-        print("✅ Task added successfully!")
+        print("Task added successfully!")
 
     elif choice == "2":
         cursor.execute("SELECT * FROM tb_todo")
@@ -74,13 +74,13 @@ while True:
         new_status = input("Enter new status (pending/completed): ")
         cursor.execute("UPDATE tb_todo SET status = %s WHERE id = %s", (new_status, task_id))
         con.commit()
-        print("✅ Task updated successfully!")
+        print("Task updated successfully!")
 
     elif choice == "4":
         task_id = input("Enter task ID to delete: ")
         cursor.execute("DELETE FROM tb_todo WHERE id = %s", (task_id,))
         con.commit()
-        print("✅ Task deleted successfully!")
+        print("Task deleted successfully!")
 
     elif choice == "5":
         print("Exiting Task Management...")
